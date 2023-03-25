@@ -1,13 +1,9 @@
-import { NOSYA_API_KEY } from "../config/environments";
+import {NOSYA_API_KEY} from '../config/environments';
 
 const BASE_URL = 'https://www.nosyapi.com/apiv2';
 
-class PharmacyService {
-  async getPharmacies(
-    city: string,
-    district: string,
-    onSuccess: (res: any) => void,
-  ) {
+class VetService {
+  async getVets(city: string, country: string, onSuccess: (res: any) => void) {
     var data = new FormData();
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -21,16 +17,13 @@ class PharmacyService {
     xhr.open(
       'GET',
       BASE_URL +
-        `/pharmacy/list?city=${city.toLowerCase()}&county=${district.toLowerCase()}`,
+        `/getTurkey?id=95930&city=${city.toLowerCase()}&country=${country.toLowerCase()}`,
     );
     xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader(
-      'Authorization',
-      'Bearer '+ NOSYA_API_KEY,
-    );
+    xhr.setRequestHeader('Authorization', 'Bearer ' + NOSYA_API_KEY);
 
     xhr.send(data);
   }
 }
 
-export default new PharmacyService();
+export default new VetService();

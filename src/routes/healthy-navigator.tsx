@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Hospitals} from '../pages';
+import {Hospitals, Vets} from '../pages';
 import CustomTabBar from '../components/CustomTabBar';
 import Pharmacies from '../pages/Bottom/Pharmacies';
 
@@ -16,7 +16,7 @@ export default function HealtyNavigator() {
       />
       <Tab.Screen
         name="Vets"
-        component={Hospitals}
+        component={Vets}
         initialParams={{iconName: 'dog : matcom'}}
       />
       <Tab.Screen

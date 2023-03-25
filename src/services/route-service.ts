@@ -1,3 +1,5 @@
+import { OSM_API_KEY } from "../config/environments";
+
 const BASE_URL = 'https://api.openrouteservice.org/v2/directions';
 
 class RouteService {
@@ -23,7 +25,7 @@ class RouteService {
     request.setRequestHeader('Content-Type', 'application/json');
     request.setRequestHeader(
       'Authorization',
-      '5b3ce3597851110001cf62485f345818dacd4cbda0b365c7c86fb074',
+      OSM_API_KEY,
     );
 
     request.onreadystatechange = function () {

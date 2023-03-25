@@ -1,3 +1,3 @@
-import {Hospitals} from './Bottom'
+import {Hospitals, Pharmacies, Vets} from './Bottom';
 
-export {Hospitals};
+export {Hospitals, Pharmacies, Vets};

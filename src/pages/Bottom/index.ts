@@ -1,3 +1,5 @@
 import Hospitals from "./Hospitals";
+import Pharmacies from "./Pharmacies";
+import Vets from "./Vets";
 
-export {Hospitals}
+export {Hospitals,Pharmacies,Vets}

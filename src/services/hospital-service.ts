@@ -1,3 +1,5 @@
+import { NOSYA_API_KEY } from "../config/environments";
+
 const BASE_URL = 'https://www.nosyapi.com/apiv2';
 
 class HospitalService {
@@ -23,7 +25,7 @@ class HospitalService {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader(
       'Authorization',
-      'Bearer VpSyeow88wCnrtFHtbl9wi0fTY0Y9lQ89nh8dSiy4uXpTF7i8OkTkLO785Rv',
+      'Bearer ' + NOSYA_API_KEY,
     );
 
     xhr.send(data);
