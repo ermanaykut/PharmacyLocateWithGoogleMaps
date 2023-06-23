@@ -1,11 +1,12 @@
 import {View, Text, Pressable, TextInput} from 'react-native';
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import MapView, {Marker, Polyline, PROVIDER_GOOGLE} from 'react-native-maps';
 import styles from './style';
 import Icon from '../../../components/Icon';
 import {colors} from '../../../constants/colors';
 import hospitalService from '../../../services/hospital-service';
 import routeService from '../../../services/route-service';
+import {getCoords} from '../../../utils';
 
 interface IRegion {
   latitudeDelta: number;
@@ -45,7 +46,9 @@ export default function Hospitals() {
   const onPressedSearch = () => {
     hospitalService.getHospitals(city, district, onSuccess);
   };
-
+  useEffect(() => {
+    getCoords();
+  }, []);
   const onUserLocationChange = (value: any) => {
     const {latitude, longitude, heading} = value.nativeEvent.coordinate;
     setLocation({latitude, longitude});
@@ -64,6 +67,7 @@ export default function Hospitals() {
       );
     }
   };
+
   const decode: any = (t: any, e: any) => {
     for (
       var n,
@@ -101,7 +105,7 @@ export default function Hospitals() {
 
   const findRoute = () => {
     if (location && hospital)
-      routeService.getHospitals(location, hospital, onSuccessRoute);
+      routeService.getRoutes(location, hospital, onSuccessRoute);
   };
 
   return (
